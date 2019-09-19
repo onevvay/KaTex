@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <script type="text/javascript" src="js/jquery/jquery-1.6.2.js"></script>
+        <link rel="stylesheet" href="katex/katex.min.css" />
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script src="katex/katex.min.js"></script>
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script src="katex/contrib/auto-render.min.js"></script>
+        <style type="text/css">
+            .cui-textarea-auto {
+                width: 99.8%;
+                overflow-x: hidden;
+                overflow-y: auto;
+                word-break: break-all;
+            }
+
+            .cui-noborder-textarea {
+                border: 1;
+                line-height: 16px;
+                width: 100%;
+                padding-left: 2px;
+                height: 60px;
+                word-break: break-all;
+            }
+        </style>
+    </head>
+
+    <body>
+        <span>input a factor:</span>
+        <textarea
+            property_type="TEXT"
+            id="factorArea"
+            class="cui-noborder-textarea cui-textarea-auto"
+            width="200px"
+        ></textarea>
+        <input type="button" value="show" onclick="show()" />
+        <br /><br />
+        <span
+            class="sp1"
+            title=""
+        ></span
+        ><br /><br />
+        <span
+            class="sp2"
+            title=""
+        ></span
+        ><br /><br />
+    </body>
+    <script type="text/javascript" src="js/factorParser.js"></script>
+    <script type="text/javascript">
+        /*renderMathInElement(document.body, {
+            delimiters: [
+                {
+                    left: '$$',
+                    right: '$$',
+                    display: true
+                },
+                {
+                    left: '$',
+                    right: '$',
+                    display: false
+                }
+            ]
+        });*/
+
+        function show() {
+            var factor = parseKatexFactor(
+                document.getElementById('factorArea').value
+            );
+
+            // 渲染公式
+            try {
+                console.log(factor);
+                katex.render(factor, $('.sp1')[0], {
+                    throwOnError: false
+                });
+            } catch (e) {
+                console.log(e);
+            }
+            
+        }
+    </script>
+</html>
