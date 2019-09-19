@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <script type="text/javascript" src="js/jquery/jquery-1.6.2.js"></script>
+    <link rel="stylesheet" href="katex/katex.min.css" />
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script src="katex/katex.min.js"></script>
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script src="katex/contrib/auto-render.min.js"></script>
+  </head>
+
+  <body>
+    <p><span class="sp1">...</span></p>
+    <p><span class="sp2">...</span></p>
+    <p><span class="sp3">...</span></p>
+    <p><span class="sp4">...</span></p>
+    <p><span class="sp5">...</span></p>
+    <p><span class="sp6">...</span></p>
+    <p><span class="sp7">...</span></p>
+    <p><span class="sp8">...</span></p>
+    <p><span class="sp9">...</span></p>
+    <p><span class="sp10">...</span></p>
+    <p><span class="sp11">...</span></p>
+    <p><span class="sp12">...</span></p>
+    <p><span class="sp13">...</span></p>
+    <p><span class="sp14">...</span></p>
+    <p><span class="sp15">...</span></p>
+
+    <script>
+      //{#特殊符号#}
+      html = katex.renderToString('\\$ \\%  \\& \\_ \\{ \\}  \\# ');
+      $('.sp1').html(html);
+
+      //{#上下标#}
+      html = katex.renderToString(
+        'a_{1}\\qquad x^2 \\quad  b^{3}_{ij} \\quad e^{2}\\neq (e^x)^2 \\quad e^{x^2}'
+      );
+      $('.sp2').html(html);
+
+      //{#平方根#}
+      html = katex.renderToString(
+        '\\sqrt{x} \\quad \\sqrt[3]{x} \\quad \\sqrt{x^{2}+ \\sqrt{y}}'
+      );
+      $('.sp3').html(html);
+
+      //{#分数#}
+      html = katex.renderToString(
+        '\\frac{x^2}{k+1} \\quad  x^{\\frac{2}{k+1}} \\quad x^{1/2}'
+      );
+      $('.sp4').html(html);
+
+      //{#向量#}
+      html = katex.renderToString(
+        '\\vec a  \\qquad  \\overrightarrow{AB}  \\qquad  \\overleftarrow{AB}'
+      );
+      $('.sp5').html(html);
+
+      //{#求和运算符#}
+      html = katex.renderToString('\\displaystyle{\\sum_{i=4}^{10}}');
+      $('.sp6').html(html);
+
+      //{#希腊字母#}
+      html = katex.renderToString(
+        '\\alpha \\beta \\gamma \\sigma \\omega \\delta \\pi \\rho \\epsilon \\eta \\lambda \\mu \\xi \\tau \\kappa \\zeta \\phi \\chi'
+      );
+      $('.sp7').html(html);
+
+      //{#常用的数学运算符#}
+      html = katex.renderToString(
+        '\> \< \\le  \\ge  \\ne  \\approx  \\sim  \\subseteq  \\in  \\notin  \\times  \\div  \\pm  \\Rightarrow  \\rightarrow  \\infty  \\partial  \\angle  \\triangle'
+      );
+      $('.sp8').html(html);
+
+      //{#小括号,中括号#}
+      html = katex.renderToString(
+        '\\left (1,2,4\\right) \\qquad \\left [ 3,5,9 \\right ]'
+      );
+      $('.sp9').html(html);
+
+      //{#尖括号#}
+      html = katex.renderToString(
+        '\\left \\langle  \\right \\rangle \\qquad \\left \\langle 3,4 \\right \\rangle'
+      );
+      $('.sp10').html(html);
+
+      //{#水平线#}
+      html = katex.renderToString(
+        '\\overline{.oschina.io}+\\underline{lindexi.github.io}'
+      );
+      $('.sp11').html(html);
+
+      //{#上下大括号#}
+      html = katex.renderToString(
+        '\\overbrace{blog.csdn.net/lindexi_gd}_{lindexi} + \\underbrace{lindexi.github.io}_{doubi}'
+      );
+      $('.sp12').html(html);
+
+      //{#三角函数#}
+      html = katex.renderToString(
+        '\\sin\\theta \\qquad \\cos\\theta \\qquad \\tan\\theta \\qquad \\cot \\theta'
+      );
+      $('.sp13').html(html);
+
+      //{#对数函数 #}
+      html = katex.renderToString('\\lg X \\qquad \\log X \\qquad \\log_ 3 10');
+      $('.sp14').html(html);
+
+      var a = $('.sp15')[0];
+      katex.render('c = \\pm\\sqrt{a^2 + b^2}', a);
+    </script>
+  </body>
+</html>
